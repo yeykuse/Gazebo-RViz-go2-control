@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="room_world">
+    <!-- 物理、光照 -->
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <!-- 用户用 Building Editor 搭的楼道模型 -->
+    <include>
+      <uri>model://room</uri>
+      <name>room</name>
+      <pose>0.647314 -1.3428 0 0 0 0</pose>
+    </include>
+
+    <!-- 发布 /gazebo/model_states 和 get/set_entity_state 服务，10Hz -->
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <update_rate>10.0</update_rate>
+    </plugin>
+  </world>
+</sdf>
